@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use JWTAuth;
 use JWTAuthException;
 use Hash;
@@ -17,6 +18,13 @@ class UserController extends Controller
     }
    
     public function register(Request $request){
+        $user = DB::table('users')->where('email', $request->get('email'))->first();
+        if ($user) {
+            return response()->json([
+                'status'=> 0,
+                'message'=> 'Tài khoản đã tồn tại',
+            ]);
+        }
         $user = $this->user->create([
           'name' => $request->get('name'),
           'email' => $request->get('email'),
@@ -25,7 +33,7 @@ class UserController extends Controller
 
         return response()->json([
             'status'=> 200,
-            'message'=> 'User created successfully',
+            'message'=> 'Tạo mới thành công',
             'data'=>$user
         ]);
     }
@@ -35,12 +43,19 @@ class UserController extends Controller
         $token = null;
         try {
            if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['invalid_email_or_password'], 422);
+            return response()->json([
+                'status' => 0,
+                'message' => 'invalid_email_or_password'
+            ]);
            }
         } catch (JWTAuthException $e) {
             return response()->json(['failed_to_create_token'], 500);
         }
-        return response()->json(compact('token'));
+        return response()->json([
+            'status' => 200,
+            'message'=> 'Login successfully',
+            'data' => compact('token')
+        ]);
     }
 
     public function getUserInfo(Request $request){
