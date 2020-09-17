@@ -73,4 +73,8 @@ class UserController extends Controller
             ]);
         }
     }
+    public function logout()
+    {
+        JWTAuth::logout();
+    }
 }

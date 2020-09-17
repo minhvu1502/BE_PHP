@@ -3,20 +3,22 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use http\Env\Request;
+use Tymon\JWTAuth\JWTAuth;
 
 class VerifyJWTToken
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param Request $request
+     * @param Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         try {
-            $user = JWTAuth::toUser($request->header('token'));
+            $user = JWTAuth::toUser($request->input('token'));
         }catch (JWTException $e) {
             if($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
                 return response()->json([
