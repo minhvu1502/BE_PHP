@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use http\Env\Request;
-use Tymon\JWTAuth\JWTAuth;
+//use http\Env\Request;
+use JWTAuth;
+use Illuminate\Http\Request;
 
 class VerifyJWTToken
 {
