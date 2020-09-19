@@ -3,20 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
-//use http\Env\Request;
-use JWTAuth;
-use Illuminate\Http\Request;
 
 class VerifyJWTToken
 {
     /**
      * Handle an incoming request.
      *
-     * @param Request $request
-     * @param Closure $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         try {
             $user = JWTAuth::toUser($request->input('token'));
