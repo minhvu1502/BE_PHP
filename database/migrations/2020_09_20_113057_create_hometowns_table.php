@@ -17,6 +17,7 @@ class CreateHometownsTable extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

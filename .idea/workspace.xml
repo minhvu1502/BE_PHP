@@ -27,6 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật tên api hometown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_20_113057_create_hometowns_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_20_113057_create_hometowns_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,6 +203,7 @@
       <workItem from="1600586963752" duration="16320000" />
       <workItem from="1600619878104" duration="2503000" />
       <workItem from="1600670683252" duration="5468000" />
+      <workItem from="1600682694115" duration="438000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
