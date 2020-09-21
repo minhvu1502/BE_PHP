@@ -25,7 +25,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật bảng hometown" />
+    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật bảng hometown">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,6 +204,7 @@
       <workItem from="1600619878104" duration="2503000" />
       <workItem from="1600670683252" duration="5468000" />
       <workItem from="1600682694115" duration="704000" />
+      <workItem from="1600694683321" duration="808000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
@@ -230,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600683379817</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cập nhật bảng hometown">
+      <created>1600694718113</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600694718113</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,14 +344,15 @@
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1600488022112" />
     <state x="259" y="20" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600675035749" />
-    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1600683383621">
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1600694724209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600488071092" />
-    <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600683383621" />
-    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600587759857">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694724209" />
+    <state x="703" y="399" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600694775220">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1600587759857" />
+    <state x="703" y="399" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694775220" />
   </component>
 </project>
