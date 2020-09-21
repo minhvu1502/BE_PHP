@@ -15,7 +15,7 @@ class Hometown extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name'
+        'id', 'code', 'name'
     ];
 
     /**
@@ -24,6 +24,6 @@ class Hometown extends Model
      * @var array
      */
     protected $hidden = [
-        'id'
+
     ];
 }
