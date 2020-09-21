@@ -25,10 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật bảng hometown">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" afterDir="false" />
-    </list>
+    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật bảng hometown" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -264,7 +261,8 @@
     <MESSAGE value="cập nhật api" />
     <MESSAGE value="cập nhật tên api hometown" />
     <MESSAGE value="cập nhật bảng hometown" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật bảng hometown" />
+    <MESSAGE value="cập nhật trường status bảng hometown" />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật trường status bảng hometown" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="182" key="#PHP" timestamp="1600658665221">
