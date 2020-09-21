@@ -16,7 +16,7 @@ class HometownController extends Controller
         $this->hometown = $hometown;
     }
 
-    public function index()
+    public function filter()
     {
         try {
             $hometowns = DB::table('hometowns')->get();

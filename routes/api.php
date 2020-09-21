@@ -24,7 +24,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     //Hometown
     Route::post('hometown/create','HomeTownController@create');
-    Route::get('hometown/hometown', 'HomeTownController@index');
+    Route::get('hometown/filter', 'HomeTownController@filter');
     Route::get('hometown/detail/{id}', 'HomeTownController@Detail');
     Route::post('hometown/delete', 'HomeTownController@delete');
     Route::put('hometown/update/{id}', 'HomeTownController@update');
