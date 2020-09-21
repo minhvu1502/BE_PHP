@@ -45,7 +45,8 @@ class HometownController extends Controller
             }
             $hometown = $this->hometown->create([
                 'code' => $request->get('code'),
-                'name' => $request->get('name')
+                'name' => $request->get('name'),
+                'status' => $request->get('status')
             ]);
             return response()->json([
                 'status' => 200,
@@ -72,7 +73,10 @@ class HometownController extends Controller
                 ]);
             }
             else {
-                $hometown = DB::table('hometowns')->where('id', $id)->update($request->all());
+                $hometown = DB::table('hometowns')->where('id', $id)->update([
+                    'name'=>$request->get('name'),
+                    'status'=>$request->get('status')
+                ]);
                 return response()->json([
                     'status' => 200,
                     'message' => 'Cập nhật thành công',
