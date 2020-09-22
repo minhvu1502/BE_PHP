@@ -15,7 +15,7 @@ class Hometown extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'code', 'name'
+        'id', 'code', 'name', 'status'
     ];
 
     /**
