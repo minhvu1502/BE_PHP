@@ -25,10 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="cập nhật bảng hometown">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" afterDir="false" />
-    </list>
+    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="thêm mới bảng bàn và loại bàn" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,6 +202,8 @@
       <workItem from="1600670683252" duration="5468000" />
       <workItem from="1600682694115" duration="704000" />
       <workItem from="1600694683321" duration="808000" />
+      <workItem from="1600733618031" duration="3304000" />
+      <workItem from="1600770689644" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
@@ -241,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600694718113</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="thêm mới bảng bàn và loại bàn">
+      <created>1600772422332</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600772422332</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +270,8 @@
     <MESSAGE value="cập nhật api" />
     <MESSAGE value="cập nhật tên api hometown" />
     <MESSAGE value="cập nhật bảng hometown" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật bảng hometown" />
+    <MESSAGE value="thêm mới bảng bàn và loại bàn" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm mới bảng bàn và loại bàn" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="182" key="#PHP" timestamp="1600658665221">
@@ -344,15 +351,15 @@
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1600488022112" />
     <state x="259" y="20" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600675035749" />
-    <state x="387" y="144" key="Vcs.Push.Dialog.v2" timestamp="1600694724209">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600772432218">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600488071092" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600772432218" />
     <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694724209" />
-    <state x="703" y="399" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600694775220">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600772183383">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1600587759857" />
+    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1600772183383" />
     <state x="703" y="399" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694775220" />
   </component>
 </project>
