@@ -24,6 +24,5 @@ class Hometown extends Model
      * @var array
      */
     protected $hidden = [
-
     ];
 }
