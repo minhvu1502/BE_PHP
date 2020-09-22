@@ -204,6 +204,7 @@
       <workItem from="1600694683321" duration="808000" />
       <workItem from="1600733618031" duration="3304000" />
       <workItem from="1600770689644" duration="671000" />
+      <workItem from="1600778886022" duration="398000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
@@ -247,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600772422332</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="thêm mới bảng bàn và loại bàn">
+      <created>1600778968946</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600778968946</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,10 +359,10 @@
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1600488022112" />
     <state x="259" y="20" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600675035749" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600772432218">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600778973336">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600772432218" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600778973336" />
     <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694724209" />
     <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600772183383">
       <screen x="0" y="0" width="1366" height="738" />
