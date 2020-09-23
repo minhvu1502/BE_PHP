@@ -16,10 +16,10 @@ class HometownController extends Controller
         $this->hometown = $hometown;
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
         try {
-            $hometowns = DB::table('hometowns')->get();
+            $hometowns = Hometown::all();
             return response()->json([
                 'status' => 200,
                 'data' => $hometowns,
@@ -65,24 +65,23 @@ class HometownController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $hometown = DB::table('hometowns')->where('id',$id);
+            $hometown = DB::table('hometowns')->where('id', $id);
             if (!$hometown) {
                 return response()->json([
                     'status' => 500,
                     'message' => 'Không thể cập nhật'
                 ]);
-            }
-            else {
+            } else {
                 $hometown = DB::table('hometowns')->where('id', $id)->update([
-                    'name'=>$request->get('name'),
-                    'status'=>$request->get('status')
+                    'name' => $request->get('name'),
+                    'status' => $request->get('status')
                 ]);
                 return response()->json([
                     'status' => 200,
                     'message' => 'Cập nhật thành công',
                     'data' => [
-                        'id'=>$id,
-                        'name'=>$request->get('name')
+                        'id' => $id,
+                        'name' => $request->get('name')
                     ]
                 ], 200);
             }
@@ -128,8 +127,8 @@ class HometownController extends Controller
             if ($count > 0) {
                 DB::table('hometowns')->whereIn('id', $listId)->delete();
                 return response()->json([
-                    'status'=>200,
-                    'message'=>'Xóa dữ liệu thành công',
+                    'status' => 200,
+                    'message' => 'Xóa dữ liệu thành công',
                     'data' => $listId
                 ], 200);
             } else {
