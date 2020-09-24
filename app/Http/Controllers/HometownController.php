@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Hometown;
 use Illuminate\Support\Facades\DB;
@@ -74,13 +75,15 @@ class HometownController extends Controller
             } else {
                 $hometown = DB::table('hometowns')->where('id', $id)->update([
                     'name' => $request->get('name'),
-                    'status' => $request->get('status')
+                    'status' => $request->get('status'),
+                    'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
                     'status' => 200,
                     'message' => 'Cập nhật thành công',
                     'data' => [
                         'id' => $id,
+                        'code'=> $request->get('code'),
                         'name' => $request->get('name')
                     ]
                 ], 200);
