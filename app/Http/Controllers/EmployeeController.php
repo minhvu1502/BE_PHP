@@ -51,6 +51,7 @@ class EmployeeController extends Controller
                 'dateOfBirth' => $request->get('dateOfBirth'),
                 'phone' => $request->get('phone'),
                 'address' => $request->get('address'),
+                'email' => $request->get('email'),
                 'Hometown_Id' => $request->get('Hometown_Id'),
             ]);
             return response()->json([
@@ -85,6 +86,7 @@ class EmployeeController extends Controller
                     'phone' => $request->get('phone'),
                     'Hometown_Id' => $request->get('Hometown_Id'),
                     'address' => $request->get('address'),
+                    'email' => $request->get('email'),
                     'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
