@@ -25,15 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Hometown.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Hometown.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HometownController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_021650_create_employees_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-    </list>
+    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="thêm mới api nhân viên" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,7 +208,7 @@
       <workItem from="1600778886022" duration="398000" />
       <workItem from="1600824636309" duration="3796000" />
       <workItem from="1600843542019" duration="11417000" />
-      <workItem from="1600930447146" duration="6652000" />
+      <workItem from="1600930447146" duration="6974000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
@@ -281,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600930488992</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="thêm mới api nhân viên">
+      <created>1600937461248</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600937461248</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +306,8 @@
     <MESSAGE value="thêm mới bảng bàn và loại bàn" />
     <MESSAGE value="chỉnh sửa api" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="thêm mới api nhân viên" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm mới api nhân viên" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="182" key="#PHP" timestamp="1600658665221">
@@ -391,10 +391,10 @@
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1600488022112" />
     <state x="259" y="20" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600675035749" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600857671555">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1600937488579">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600857671555" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600937488579" />
     <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694724209" />
     <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600772183383">
       <screen x="0" y="0" width="1366" height="738" />
