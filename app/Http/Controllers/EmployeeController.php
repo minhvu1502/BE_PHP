@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -49,6 +50,7 @@ class EmployeeController extends Controller
                 'sex' => $request->get('sex'),
                 'dateOfBirth' => $request->get('dateOfBirth'),
                 'phone' => $request->get('phone'),
+                'address' => $request->get('address'),
                 'Hometown_Id' => $request->get('Hometown_Id'),
             ]);
             return response()->json([
@@ -79,10 +81,11 @@ class EmployeeController extends Controller
                     'name' => $request->get('name'),
                     'status' => $request->get('status'),
                     'sex' => $request->get('sex'),
-                    'dateOfBirth' =>$request->get('dateOfBirth'),
-                    'phone'=>$request->get('phone'),
-                    'Hometown_Id' =>$request->get('Hometown_Id'),
-                    'updated_at' =>Carbon::now()
+                    'dateOfBirth' => $request->get('dateOfBirth'),
+                    'phone' => $request->get('phone'),
+                    'Hometown_Id' => $request->get('Hometown_Id'),
+                    'address' => $request->get('address'),
+                    'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
                     'status' => 200,
