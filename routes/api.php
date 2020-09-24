@@ -28,6 +28,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('hometown/detail/{id}', 'HomeTownController@Detail');
     Route::post('hometown/delete', 'HomeTownController@delete');
     Route::put('hometown/update/{id}', 'HomeTownController@update');
+
+    //Employee
+    Route::post('employee/create','EmployeeController@create');
+    Route::post('employee/filter', 'EmployeeController@filter');
+    Route::get('employee/detail/{id}', 'EmployeeController@Detail');
+    Route::post('employee/delete', 'EmployeeController@delete');
+    Route::put('employee/update/{id}', 'EmployeeController@update');
 });
 
 

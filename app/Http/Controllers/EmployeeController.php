@@ -1,29 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Hometown;
 use Illuminate\Support\Facades\DB;
 
-class HometownController extends Controller
+class EmployeeController extends Controller
 {
-    //
-    private $hometown;
+    private $employee;
 
-    public function __construct(Hometown $hometown)
+    public function __construct(Employee $employee)
     {
-        $this->hometown = $hometown;
+        $this->employee = $employee;
     }
 
     public function filter(Request $request)
     {
         try {
-            $hometowns = Hometown::all();
+            $employee = Employee::all();
             return response()->json([
                 'status' => 200,
-                'data' => $hometowns,
+                'data' => $employee,
                 'message' => 'Lấy dữ liệu thành công'
             ], 200);
         } catch (\Throwable $e) {
@@ -37,22 +35,26 @@ class HometownController extends Controller
     public function create(Request $request)
     {
         try {
-            $hometown = DB::table('hometowns')->where('code', $request->get('code'))->first();
-            if ($hometown) {
+            $employee = DB::table('employees')->where('code', $request->get('code'))->first();
+            if ($employee) {
                 return response()->json([
                     'status' => 500,
-                    'message' => 'Quê đã tồn tại'
+                    'message' => 'Nhân viên đã tồn tại'
                 ], 500);
             }
-            $hometown = $this->hometown->create([
+            $employee = $this->employee->create([
                 'code' => $request->get('code'),
                 'name' => $request->get('name'),
-                'status' => $request->get('status')
+                'status' => $request->get('status'),
+                'sex' => $request->get('sex'),
+                'dateOfBirth' => $request->get('dateOfBirth'),
+                'phone' => $request->get('phone'),
+                'Hometown_Id' => $request->get('Hometown_Id'),
             ]);
             return response()->json([
                 'status' => 200,
                 'message' => 'Tạo mới thành công',
-                'data' => $hometown
+                'data' => $employee
             ], 200);
         } catch (\Throwable $e) {
             report($e);
@@ -66,24 +68,27 @@ class HometownController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $hometown = DB::table('hometowns')->where('id', $id);
-            if (!$hometown) {
+            $employee = DB::table('employees')->where('id', $id);
+            if (!$employee) {
                 return response()->json([
                     'status' => 500,
                     'message' => 'Không thể cập nhật'
                 ]);
             } else {
-                $hometown = DB::table('hometowns')->where('id', $id)->update([
+                $employee = DB::table('employees')->where('id', $id)->update([
                     'name' => $request->get('name'),
                     'status' => $request->get('status'),
-                    'updated_at' => Carbon::now()
+                    'sex' => $request->get('sex'),
+                    'dateOfBirth' =>$request->get('dateOfBirth'),
+                    'phone'=>$request->get('phone'),
+                    'Hometown_Id' =>$request->get('Hometown_Id'),
+                    'updated_at' =>Carbon::now()
                 ]);
                 return response()->json([
                     'status' => 200,
                     'message' => 'Cập nhật thành công',
                     'data' => [
                         'id' => $id,
-                        'code'=> $request->get('code'),
                         'name' => $request->get('name')
                     ]
                 ], 200);
@@ -100,12 +105,12 @@ class HometownController extends Controller
     public function Detail($id)
     {
         try {
-            $hometown = DB::table('hometowns')->find($id);
-            if ($hometown) {
+            $employee = DB::table('employees')->find($id);
+            if ($employee) {
                 return response()->json([
                     'status' => 200,
                     'message' => 'Lấy dữ liệu thành công',
-                    'data' => $hometown
+                    'data' => $employee
                 ], 200);
             } else {
                 return response()->json([
@@ -128,7 +133,7 @@ class HometownController extends Controller
             $listId = $request->get('listId');
             $count = count($listId);
             if ($count > 0) {
-                DB::table('hometowns')->whereIn('id', $listId)->delete();
+                DB::table('employees')->whereIn('id', $listId)->delete();
                 return response()->json([
                     'status' => 200,
                     'message' => 'Xóa dữ liệu thành công',
