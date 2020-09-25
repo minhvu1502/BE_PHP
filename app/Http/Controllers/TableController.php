@@ -43,7 +43,7 @@ class TableController extends Controller
                     'message' => 'Bàn đã tồn tại'
                 ], 500);
             }
-            $table = $this->tables->create([
+            $table = $this->table->create([
                 'code' => $request->get('code'),
                 'name' => $request->get('name'),
                 'status' => $request->get('status'),
