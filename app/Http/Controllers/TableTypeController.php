@@ -40,7 +40,7 @@ class TableTypeController extends Controller
             if ($tableTypes) {
                 return response()->json([
                     'status' => 500,
-                    'message' => 'Quê đã tồn tại'
+                    'message' => 'Loại bàn đã tồn tại'
                 ], 500);
             }
             $tableTypes = $this->tableTypes->create([
