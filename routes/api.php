@@ -42,6 +42,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('tableType/detail/{id}', 'TableTypeController@Detail');
     Route::post('tableType/delete', 'TableTypeController@delete');
     Route::put('tableType/update/{id}', 'TableTypeController@update');
+
+    //Table
+    Route::post('table/create','TableController@create');
+    Route::post('table/filter', 'TableController@filter');
+    Route::get('table/detail/{id}', 'TableController@Detail');
+    Route::post('table/delete', 'TableController@delete');
+    Route::put('table/update/{id}', 'TableController@update');
 });
 
 
