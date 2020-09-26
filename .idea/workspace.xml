@@ -25,11 +25,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="chỉnh sửa api">
+    <list default="true" id="e8eb612e-abce-4b16-a728-e507dad1da6c" name="Default Changelist" comment="chỉnh sửa api nhân viên">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_23_2020_8_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_23_2020_8_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_24_2020_8_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_24_2020_8_01_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_24_090523_update_employee_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_24_090523_update_employee_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/them-moi-api-nhan-vien" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -214,6 +213,9 @@
       <workItem from="1600824636309" duration="3796000" />
       <workItem from="1600843542019" duration="11417000" />
       <workItem from="1600930447146" duration="8507000" />
+      <workItem from="1601018506585" duration="825000" />
+      <workItem from="1601033430668" duration="14000" />
+      <workItem from="1601083967600" duration="529000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1600488064268</created>
@@ -292,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600938754688</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="chỉnh sửa api nhân viên">
+      <created>1600942360499</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600942360500</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,10 +418,10 @@
     </state>
     <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1600939034197" />
     <state x="387" y="144" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694724209" />
-    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600772183383">
+    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600942615910">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1600772183383" />
+    <state x="500" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1600942615910" />
     <state x="703" y="399" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600694775220" />
     <state x="0" y="0" width="585" height="738" key="find.popup" timestamp="1600931886941">
       <screen x="0" y="0" width="1366" height="738" />
