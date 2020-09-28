@@ -2,30 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Table;
+use App\Customer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class TableController extends Controller
+class CustomerController extends Controller
 {
-    private $table;
+    private $customer;
 
-    public function __construct(Table $table)
+    public function __construct(Customer $customer)
     {
-        $this->table = $table;
+        $this->customer = $customer;
     }
 
     public function filter(Request $request)
     {
         try {
-            $table = DB::table('tables')
-            ->join('TableTypes','tables.TableType_Id', '=', 'TableTypes.id')
-            ->select('tables.*', 'TableTypes.name as TableType_Name')
-            ->get();
+            $customer = DB::table('customers')->get();
             return response()->json([
                 'status' => 200,
-                'data' => $table,
+                'data' => $customer,
                 'message' => 'Lấy dữ liệu thành công'
             ], 200);
         } catch (\Throwable $e) {
@@ -39,23 +36,27 @@ class TableController extends Controller
     public function create(Request $request)
     {
         try {
-            $table = DB::table('tables')->where('code', $request->get('code'))->first();
-            if ($table) {
+            $customer = DB::table('customers')->where('code', $request->get('code'))->first();
+            if ($customer) {
                 return response()->json([
                     'status' => 500,
-                    'message' => 'Bàn đã tồn tại'
+                    'message' => 'Khách hàng đã tồn tại'
                 ], 500);
             }
-            $table = $this->table->create([
+            $customer = $this->customer->create([
                 'code' => $request->get('code'),
                 'name' => $request->get('name'),
                 'status' => $request->get('status'),
-                'TableType_Id'=>$request->get('TableType_Id')
+                'sex' => $request->get('sex'),
+                'dateOfBirth' => $request->get('dateOfBirth'),
+                'phone' => $request->get('phone'),
+                'address' => $request->get('address'),
+                'email' => $request->get('email'),
             ]);
             return response()->json([
                 'status' => 200,
                 'message' => 'Tạo mới thành công',
-                'data' => $table
+                'data' => $customer
             ], 200);
         } catch (\Throwable $e) {
             report($e);
@@ -69,17 +70,21 @@ class TableController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $table = DB::table('tables')->where('id', $id);
-            if (!$table) {
+            $customer = DB::table('customers')->where('id', $id);
+            if (!$customer) {
                 return response()->json([
                     'status' => 500,
                     'message' => 'Không thể cập nhật'
                 ]);
             } else {
-                $table = DB::table('tables')->where('id', $id)->update([
+                $customer = DB::table('customers')->where('id', $id)->update([
                     'name' => $request->get('name'),
                     'status' => $request->get('status'),
-                    'TableType_Id'=> $request->get('TableType_Id'),
+                    'sex' => $request->get('sex'),
+                    'dateOfBirth' => $request->get('dateOfBirth'),
+                    'phone' => $request->get('phone'),
+                    'address' => $request->get('address'),
+                    'email' => $request->get('email'),
                     'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
@@ -87,7 +92,6 @@ class TableController extends Controller
                     'message' => 'Cập nhật thành công',
                     'data' => [
                         'id' => $id,
-                        'code'=> $request->get('code'),
                         'name' => $request->get('name')
                     ]
                 ], 200);
@@ -104,12 +108,12 @@ class TableController extends Controller
     public function Detail($id)
     {
         try {
-            $table = DB::table('tables')->find($id);
-            if ($table) {
+            $customer = DB::table('customers')->find($id);
+            if ($customer) {
                 return response()->json([
                     'status' => 200,
                     'message' => 'Lấy dữ liệu thành công',
-                    'data' => $table
+                    'data' => $customer
                 ], 200);
             } else {
                 return response()->json([
@@ -132,7 +136,7 @@ class TableController extends Controller
             $listId = $request->get('listId');
             $count = count($listId);
             if ($count > 0) {
-                DB::table('tables')->whereIn('id', $listId)->delete();
+                DB::table('customers')->whereIn('id', $listId)->delete();
                 return response()->json([
                     'status' => 200,
                     'message' => 'Xóa dữ liệu thành công',

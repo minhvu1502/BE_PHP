@@ -19,7 +19,10 @@ class EmployeeController extends Controller
     public function filter(Request $request)
     {
         try {
-            $employee = Employee::all();
+            $employee = DB::table('employees')
+                ->join('hometowns', 'employees.Hometown_Id', '=', 'hometowns.id')
+                ->select('employees.*', 'hometowns.name as Hometown_Name')
+                ->get();
             return response()->json([
                 'status' => 200,
                 'data' => $employee,
