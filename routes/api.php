@@ -21,6 +21,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     //User
     Route::get('user-info', 'UserController@getUserInfo');
     Route::get('auth/logout', 'UserController@logout');
+    Route::put('auth/update/{id}', 'UserController@update');
 
     //Hometown
     Route::post('hometown/create','HomeTownController@create');
