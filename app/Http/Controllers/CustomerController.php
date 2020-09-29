@@ -52,6 +52,7 @@ class CustomerController extends Controller
                 'phone' => $request->get('phone'),
                 'address' => $request->get('address'),
                 'email' => $request->get('email'),
+                'avatarUrl' => $request->get('avatarUrl')
             ]);
             return response()->json([
                 'status' => 200,
@@ -85,6 +86,7 @@ class CustomerController extends Controller
                     'phone' => $request->get('phone'),
                     'address' => $request->get('address'),
                     'email' => $request->get('email'),
+                    'avatarUrl' => $request->get('avatarUrl'),
                     'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
