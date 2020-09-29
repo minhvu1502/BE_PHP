@@ -36,6 +36,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('employee/delete', 'EmployeeController@delete');
     Route::put('employee/update/{id}', 'EmployeeController@update');
 
+    //Customer
+    Route::post('customer/create','CustomerController@create');
+    Route::post('customer/filter', 'CustomerController@filter');
+    Route::get('customer/detail/{id}', 'CustomerController@Detail');
+    Route::post('customer/delete', 'CustomerController@delete');
+    Route::put('customer/update/{id}', 'CustomerController@update');
+
     //TableTypes
     Route::post('tableType/create','TableTypeController@create');
     Route::post('tableType/filter', 'TableTypeController@filter');
@@ -49,6 +56,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('table/detail/{id}', 'TableController@Detail');
     Route::post('table/delete', 'TableController@delete');
     Route::put('table/update/{id}', 'TableController@update');
+
+
 });
 
 
