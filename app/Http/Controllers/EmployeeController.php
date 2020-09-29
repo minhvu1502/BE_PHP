@@ -56,6 +56,7 @@ class EmployeeController extends Controller
                 'address' => $request->get('address'),
                 'email' => $request->get('email'),
                 'Hometown_Id' => $request->get('Hometown_Id'),
+                'avatarUrl' => $request->get('avatarUrl')
             ]);
             return response()->json([
                 'status' => 200,
@@ -90,7 +91,8 @@ class EmployeeController extends Controller
                     'Hometown_Id' => $request->get('Hometown_Id'),
                     'address' => $request->get('address'),
                     'email' => $request->get('email'),
-                    'updated_at' => Carbon::now()
+                    'updated_at' => Carbon::now(),
+                    'avatarUrl' => $request->get('avatarUrl')
                 ]);
                 return response()->json([
                     'status' => 200,

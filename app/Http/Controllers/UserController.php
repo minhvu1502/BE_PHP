@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use JWTAuth;
@@ -32,7 +33,8 @@ class UserController extends Controller
             'username' => $request->get('username'),
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password'))
+            'password' => Hash::make($request->get('password')),
+            'avatarUrl' => $request->get('avatarUrl')
         ]);
 
         return response()->json([
@@ -40,6 +42,41 @@ class UserController extends Controller
             'message' => 'Tạo mới thành công',
             'data' => $user
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $user = DB::table('users')->where('id', $id);
+            if (!$user) {
+                return response()->json([
+                    'status' => 500,
+                    'message' => 'Không thể cập nhật'
+                ]);
+            } else {
+                $user = DB::table('users')->where('id', $id)->update([
+                    'name' => $request->get('name'),
+                    'email' => $request->get('email'),
+                    'password' => Hash::make($request->get('password')),
+                    'avatarUrl' => $request->get('avatarUrl'),
+                    'updated_at' => Carbon::now(),
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Cập nhật thành công',
+                    'data' => [
+                        'id' => $id,
+                        'name' => $request->get('name')
+                    ]
+                ], 200);
+            }
+        } catch (\Throwable $e) {
+            report($e);
+            return response()->json([
+                'status' => 500,
+                'message' => $e,
+            ], 500);
+        }
     }
 
     public function login(Request $request)
