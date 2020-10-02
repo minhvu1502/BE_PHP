@@ -21,27 +21,36 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        $user = DB::table('users')->where('username', $request->get('username'))->first();
+        try {
+            $user = DB::table('users')->where('username', $request->get('username'))->first();
 
-        if ($user) {
-            return response()->json([
-                'status' => 0,
-                'message' => 'Tài khoản đã tồn tại',
+            if ($user) {
+                return response()->json([
+                    'status' => 0,
+                    'message' => 'Tài khoản đã tồn tại',
+                ]);
+            }
+            $user = $this->user->create([
+                'username' => $request->get('username'),
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'password' => Hash::make($request->get('password')),
+                'avatarUrl' => $request->get('avatarUrl'),
+                'phone' => $request->get('phone')
             ]);
-        }
-        $user = $this->user->create([
-            'username' => $request->get('username'),
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'avatarUrl' => $request->get('avatarUrl')
-        ]);
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Tạo mới thành công',
-            'data' => $user
-        ]);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Tạo mới thành công',
+                'data' => $user
+            ]);
+        } catch (\Throwable $e) {
+            report($e);
+            return response()->json([
+                'status' => 500,
+                'message' => $e,
+            ], 500);
+        }
     }
 
     public function update(Request $request, $id)
@@ -59,6 +68,7 @@ class UserController extends Controller
                     'email' => $request->get('email'),
                     'password' => Hash::make($request->get('password')),
                     'avatarUrl' => $request->get('avatarUrl'),
+                    'phone' => $request->get('phone'),
                     'updated_at' => Carbon::now(),
                 ]);
                 return response()->json([
