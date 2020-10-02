@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => 'jwt.auth'], function () {
     //User
-    Route::get('user-info', 'UserController@getUserInfo');
+    Route::get('user/user-info', 'UserController@getUserInfo');
     Route::get('auth/logout', 'UserController@logout');
     Route::put('auth/update/{id}', 'UserController@update');
 
