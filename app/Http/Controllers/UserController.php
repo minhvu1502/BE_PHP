@@ -97,7 +97,7 @@ class UserController extends Controller
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'status' => 0,
-                    'message' => 'invalid_username_or_password'
+                    'message' => 'Tài khoản hoặc mật khẩu không đúng'
                 ]);
             }
         } catch (JWTAuthException $e) {
@@ -112,12 +112,20 @@ class UserController extends Controller
 
     public function getUserInfo(Request $request)
     {
-        $user = JWTAuth::toUser($request->token);
-        if ($user) {
+        try {
+            $user = JWTAuth::toUser($request->token);
+            if ($user) {
+                return response()->json([
+                    'data' => $user,
+                    'status' => 200
+                ]);
+            }
+        } catch (\Throwable $e) {
+            report($e);
             return response()->json([
-                'data' => $user,
-                'status' => 200
-            ]);
+                'status' => 500,
+                'message' => $e,
+            ], 500);
         }
     }
     public function logout()
