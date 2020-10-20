@@ -20,9 +20,9 @@ class InvoiceDetailController extends Controller
     {
         try {
             $invoice_details = DB::table('invoice_details')
-                ->join('employees','invoice_details.employee_Id','=','employees.id')
-                ->join('providers','invoice_details.provider_Id','=','providers.id')
-                ->select('invoice_details.*','employees.name as employee_Name','providers.name as provider_Name')
+                ->join('invoices','invoice_details.invoice_Id','=','invoices.id')
+                ->join('ingredients','invoice_details.ingredient_Id','=','ingredients.id')
+                ->select('invoice_details.*','invoices.name as invoice_Name','ingredients.name as ingredient_Name')
                 ->get();
             return response()->json([
                 'status' => 200,
@@ -51,8 +51,8 @@ class InvoiceDetailController extends Controller
                 'code' => $request->get('code'),
                 'name' => $request->get('name'),
                 'status' => $request->get('status'),
-                'employee_Id'=>$request->get('employee_Id'),
-                'import_Day'=>$request->get('import_Day'),
+                'total'=>$request->get('total'),
+                'price'=>$request->get('price'),
                 'provider_Id'=>$request->get('provider_Id'),
                 'total'=>$request->get('total'),
             ]);
