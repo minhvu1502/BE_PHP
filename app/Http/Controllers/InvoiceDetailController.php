@@ -64,7 +64,7 @@ class InvoiceDetailController extends Controller
                 ->orderByDesc('created_at')
                 ->take(1)
                 ->get('price');
-
+            $newPrice = $newPrice[0]->price;
             $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $request->get('ingredient_Id'))
                 ->sum('quantity');
             $invoice = DB::table('ingredients')->where('id', $request->get('ingredient_Id'));
@@ -122,7 +122,7 @@ class InvoiceDetailController extends Controller
                     ->orderByDesc('updated_at')
                     ->take(1)
                     ->get('price');
-
+                $newPrice = $newPrice[0]->price;
                 $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $request->get('ingredient_Id'))
                     ->sum('quantity');
                 $invoice = DB::table('ingredients')->where('id', $request->get('ingredient_Id'));
@@ -192,34 +192,32 @@ class InvoiceDetailController extends Controller
 
                 foreach ($listId as $item) {
 
-                    $invoiceDetail = DB::table('invoice_details')->where('id', '=',$item);
+                    $invoiceDetail = DB::table('invoice_details')->where('id', '=',$item)->get();
 
                     DB::table('invoice_details')->where('id', $item)->delete();
 
                     //Cập nhật giá nhập nguyên liệu, số lượng khi thêm mới chi tiết hóa đơn nhập
 
-                    $newPrice = DB::table('invoice_details')->where('invoice_Id', '=', $invoiceDetail->get('invoice_Id'))
+                    $newPrice = DB::table('invoice_details')->where('invoice_Id', '=', $invoiceDetail[0]->invoice_Id)
                         ->orderByDesc('updated_at')
                         ->take(1)
                         ->get('price');
-
-                    $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $invoiceDetail->get('ingredient_Id'))
+                    $newPrice = $newPrice[0]->price;
+                    $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $invoiceDetail[0]->ingredient_Id)
                         ->sum('quantity');
-                    $invoice = DB::table('ingredients')->where('id', $request->get('ingredient_Id'));
+                    $invoice = DB::table('ingredients')->where('id', $invoiceDetail[0]->ingredient_Id);
                     $invoice->update([
                         'quantity' => $count_quantity,
                         'importPrice' => $newPrice
                     ]);
 
                     //Cập nhật thành tiền khi cập nhật chi tiết hóa đơn nhập
-                    $total = DB::table('invoice_details')->where('invoice_Id', '=', $request->get('invoice_Id'))
+                    $total = DB::table('invoice_details')->where('invoice_Id', '=', $invoiceDetail[0]->invoice_Id)
                         ->sum('total');
-                    $invoice = DB::table('invoices')->where('id', $request->get('invoice_Id'));
+                    $invoice = DB::table('invoices')->where('id', $invoiceDetail[0]->invoice_Id);
                     $invoice->update([
                         'total' => $total
                     ]);
-
-
                 }
 
                 return response()->json([
