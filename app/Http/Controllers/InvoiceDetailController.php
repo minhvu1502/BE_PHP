@@ -202,19 +202,31 @@ class InvoiceDetailController extends Controller
                         ->orderByDesc('updated_at')
                         ->take(1)
                         ->get('price');
-                    $newPrice = $newPrice[0]->price;
-                    $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $invoiceDetail[0]->ingredient_Id)
-                        ->sum('quantity');
-                    $invoice = DB::table('ingredients')->where('id', $invoiceDetail[0]->ingredient_Id);
-                    $invoice->update([
-                        'quantity' => $count_quantity,
-                        'importPrice' => $newPrice
-                    ]);
+                    if (count($newPrice) == 0)
+                    {
+                        $invoice = DB::table('ingredients')->where('id', $invoiceDetail[0]->ingredient_Id);
+                        $invoice->update([
+                            'quantity' => 0.0,
+                            'importPrice' => 0.0
+                        ]);
+                    } else {
+                        $newPrice = $newPrice[0]->price;
+                        $count_quantity = DB::table('invoice_details')->where('ingredient_Id', '=', $invoiceDetail[0]->ingredient_Id)
+                            ->sum('quantity');
+                        $invoice = DB::table('ingredients')->where('id', $invoiceDetail[0]->ingredient_Id);
+                        $invoice->update([
+                            'quantity' => $count_quantity,
+                            'importPrice' => $newPrice
+                        ]);
+                    }
 
                     //Cập nhật thành tiền khi cập nhật chi tiết hóa đơn nhập
                     $total = DB::table('invoice_details')->where('invoice_Id', '=', $invoiceDetail[0]->invoice_Id)
                         ->sum('total');
                     $invoice = DB::table('invoices')->where('id', $invoiceDetail[0]->invoice_Id);
+                    if ($total == null){
+                        $total = 0;
+                    }
                     $invoice->update([
                         'total' => $total
                     ]);
