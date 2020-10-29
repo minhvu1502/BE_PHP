@@ -58,6 +58,20 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('employee/delete', 'EmployeeController@delete');
     Route::put('employee/update/{id}', 'EmployeeController@update');
 
+    //Invoices
+    Route::post('invoices/create','InvoiceController@create');
+    Route::post('invoices/filter', 'InvoiceController@filter');
+    Route::get('invoices/detail/{id}', 'InvoiceController@Detail');
+    Route::post('invoices/delete', 'InvoiceController@delete');
+    Route::put('invoices/update/{id}', 'InvoiceController@update');
+
+    //InvoiceDetail
+    Route::post('invoiceDetails/create','InvoiceDetailController@create');
+    Route::post('invoiceDetails/filter', 'InvoiceDetailController@filter');
+    Route::get('invoiceDetails/detail/{id}', 'InvoiceDetailController@Detail');
+    Route::post('invoiceDetails/delete', 'InvoiceDetailController@delete');
+    Route::put('invoiceDetails/update/{id}', 'InvoiceDetailController@update');
+
     //Customer
     Route::post('customer/create','CustomerController@create');
     Route::post('customer/filter', 'CustomerController@filter');
