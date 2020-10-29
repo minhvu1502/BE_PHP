@@ -37,6 +37,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('dishTypes/delete', 'DishTypeController@delete');
     Route::put('dishTypes/update/{id}', 'DishTypeController@update');
 
+    //Uses
+    Route::post('uses/create','DishTypeController@create');
+    Route::post('uses/filter', 'DishTypeController@filter');
+    Route::get('uses/detail/{id}', 'DishTypeController@Detail');
+    Route::post('uses/delete', 'DishTypeController@delete');
+    Route::put('uses/update/{id}', 'DishTypeController@update');
+
     //Ingredient
     Route::post('ingredient/create','IngredientController@create');
     Route::post('ingredient/filter', 'IngredientController@filter');
