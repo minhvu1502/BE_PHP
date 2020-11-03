@@ -47,19 +47,27 @@ class IngredientDishController extends Controller
                     'message' => 'Món ăn-nguyên liệu đã tồn tại'
                 ], 500);
             }
-            $ingredient_dishes = $this->ingredient_dishes->create([
-                'code' => $request->get('code'),
-                'status' => $request->get('status'),
-                'ingredient_Id'=>$request->get('ingredient_Id'),
-                'dish_Id'=>$request->get('dish_Id'),
-                'quantity'=>$request->get('quantity'),
-            ]);
-            $this->updateQuantityIngredient($request->get('ingredient_Id'), $request->get('quantity'));
+            $flag = $this->addQuantityIngredient($request->get('ingredient_Id'), $request->get('quantity'));
+            if ($flag == true)
+            {
+                $ingredient_dishes = $this->ingredient_dishes->create([
+                    'code' => $request->get('code'),
+                    'status' => $request->get('status'),
+                    'ingredient_Id'=>$request->get('ingredient_Id'),
+                    'dish_Id'=>$request->get('dish_Id'),
+                    'quantity'=>$request->get('quantity'),
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Tạo mới thành công',
+                    'data' => $ingredient_dishes
+                ], 200);
+            }
             return response()->json([
-                'status' => 200,
-                'message' => 'Tạo mới thành công',
-                'data' => $ingredient_dishes
-            ], 200);
+                'status' => 500,
+                'message' => 'Tạo mới thất bại',
+                'data' => ''
+            ], 500);
         } catch (\Throwable $e) {
             report($e);
             return response()->json([
@@ -69,14 +77,29 @@ class IngredientDishController extends Controller
         }
     }
 
-    public function updateQuantityIngredient(int $id, int $quantity){
+    public function addQuantityIngredient(int $id, int $quantity){
         $count_quantity = DB::table('ingredients')->where('id','=',$id)->sum('quantity');
         $count_quantity = $count_quantity - $quantity;
+        if ($count_quantity < 0){
+            return false;
+        }
         $update = DB::table('ingredients')->update([
             'quantity'=>$count_quantity
         ]);
+        return true;
     }
-
+    public function updateQuantityIngredient(int $id, int $quantity, int $quantityOld){
+        $count_quantity = DB::table('ingredients')->where('id','=',$id)->sum('quantity');
+        $quantity_update = $quantity - $quantityOld;
+        $count_quantity = $count_quantity - $quantity_update;
+        if ($count_quantity < 0){
+            return false;
+        }
+        $update = DB::table('ingredients')->update([
+            'quantity'=>$count_quantity
+        ]);
+        return true;
+    }
     public function update(Request $request, $id)
     {
         try {
@@ -87,23 +110,32 @@ class IngredientDishController extends Controller
                     'message' => 'Không thể cập nhật'
                 ]);
             } else {
-                $ingredient_dishes = DB::table('ingredient_dishes')->where('id', $id)->update([
+                $ingredient_dishes = DB::table('ingredient_dishes')->where('id', $id);
+                $model = $ingredient_dishes->get('quantity');
+                $flag = $this->updateQuantityIngredient($request->get('ingredient_Id'), $request->get('quantity'), $model[0]->quantity);
+                if ($flag == true)
+                {
+                    $ingredient_dishes->update([
                     'status' => $request->get('status'),
                     'ingredient_Id'=>$request->get('ingredient_Id'),
                     'dish_Id'=>$request->get('dish_Id'),
                     'quantity'=>$request->get('quantity'),
                     'updated_at' => Carbon::now()
                 ]);
-                $this->updateQuantityIngredient($request->get('ingredient_Id'), $request->get('quantity'));
+                    return response()->json([
+                        'status' => 200,
+                        'message' => 'Cập nhật thành công',
+                        'data' => [
+                            $ingredient_dishes
+                        ]
+                    ], 200);
+                }
                 return response()->json([
-                    'status' => 200,
-                    'message' => 'Cập nhật thành công',
+                    'status' => 500,
+                    'message' => 'Cập nhật thất bại',
                     'data' => [
-                        'id' => $id,
-                        'code'=> $request->get('code'),
-                        'name' => $request->get('name')
                     ]
-                ], 200);
+                ], 500);
             }
         } catch (\Throwable $e) {
             report($e);
