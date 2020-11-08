@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class IngredientDishController extends Controller
+class   IngredientDishController extends Controller
 {
     private $ingredient_dishes;
 
