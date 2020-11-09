@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class IngredientDishController extends Controller
+class   IngredientDishController extends Controller
 {
     private $ingredient_dishes;
 
@@ -22,7 +22,7 @@ class IngredientDishController extends Controller
             $ingredient_dishes = DB::table('ingredient_dishes')
                 ->join('ingredients','ingredient_dishes.ingredient_Id','=','ingredients.id')
                 ->join('dishes','ingredient_dishes.dish_Id','=','dishes.id')
-                ->select('ingredient_dishes.*','employees.name as employee_Name','providers.name as provider_Name')
+                ->select('ingredient_dishes.*','ingredients.name as ingredient_Name','dishes.name as dish_Name')
                 ->get();
             return response()->json([
                 'status' => 200,
