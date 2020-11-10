@@ -30,6 +30,13 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('hometown/delete', 'HomeTownController@delete');
     Route::put('hometown/update/{id}', 'HomeTownController@update');
 
+    //Order
+    Route::post('order/create','OrderController@create');
+    Route::post('order/filter', 'OrderController@filter');
+    Route::get('order/detail/{id}', 'OrderController@Detail');
+    Route::post('order/delete', 'OrderController@delete');
+    Route::put('order/update/{id}', 'OrderController@update');
+
     //DishTypes
     Route::post('dishTypes/create','DishTypeController@create');
     Route::post('dishTypes/filter', 'DishTypeController@filter');
