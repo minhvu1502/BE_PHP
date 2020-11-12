@@ -20,10 +20,11 @@ class OrderController extends Controller
     public function filter(Request $request)
     {
         try {
-            $orders = DB::table($this->tableName)->get()
-                ->join('tables','orders.tables','=','orders.id')
-                ->join('dishes','ingredient_dishes.dish_Id','=','dishes.id')
-                ->select('ingredient_dishes.*','ingredients.name as ingredient_Name','dishes.name as dish_Name')
+            $orders = DB::table($this->tableName)
+                ->join('tables','orders.table_Id' ,'=','tables.id')
+                ->join('employees','orders.employee_Id' ,'=','employees.id')
+                ->join('customers','orders.customer_Id' ,'=','customers.id')
+                ->select('orders.*','employees.name as employee_Name','tables.name as table_Name', 'customers.name as customer_Name')
                 ->get();
             return response()->json([
                 'status' => 200,
