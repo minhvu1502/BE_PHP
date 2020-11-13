@@ -11,7 +11,7 @@ class OrderDetailController extends Controller
 {
     private $orders;
     private $tableName = 'order_details';
-    private $table_dish = 'dishes';
+    private $table_order = 'orders';
 
     public function __construct(OrderDetail $orders)
     {
@@ -75,7 +75,7 @@ class OrderDetailController extends Controller
     public function updateTotalOrder($order_Id){
         $count_total = DB::table($this->tableName)->where('order_Id', '=', $order_Id)
             ->sum('total');
-        $dishes = DB::table($this->table_dish)->where('id', $order_Id);
+        $dishes = DB::table($this->table_order)->where('id', $order_Id);
         $dishes->update([
             'total'=>$count_total
         ]);
@@ -154,17 +154,17 @@ class OrderDetailController extends Controller
 
                 foreach ($listId as $item) {
 
-                    $dish = DB::table($this->tableName)->where('id', '=',$item)->get();
+                    $order_detail = DB::table($this->tableName)->where('id', '=',$item)->get();
 
                     DB::table($this->tableName)->where('id', $item)->delete();
                     //Cập nhật thành tiền khi cập nhật chi tiết phiếu đặt bàn
-                    $total = DB::table($this->tableName)->where('dish_Id', '=', $dish[0]->dish_Id)
+                    $total = DB::table($this->tableName)->where('order_Id', '=', $order_detail[0]->order_Id)
                         ->sum('total');
-                    $order = DB::table($this->table_dish)->where('id', $dish[0]->dish_Id);
+                    $order = DB::table($this->table_order)->where('id', $order_detail[0]->order_Id);
                     if ($total == null){
                         $total = 0;
                     }
-                    $dish->update([
+                    $order->update([
                         'total' => $total
                     ]);
                 }
