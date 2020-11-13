@@ -55,7 +55,8 @@ class DishController extends Controller
                 'total' => $request->get('total'),
                 'dishType_Id' => $request->get('dishType_Id'),
                 'use_Id' => $request->get('use_Id'),
-                'status' => $request->get('status')
+                'status' => $request->get('status'),
+                'pictureUrl' => $request->get('pictureUrl')
             ]);
             return response()->json([
                 'status' => 200,
@@ -89,6 +90,7 @@ class DishController extends Controller
                     'dishType_Id' => $request->get('dishType_Id'),
                     'use_Id' => $request->get('use_Id'),
                     'status' => $request->get('status'),
+                    'pictureUrl' => $request->get('pictureUrl'),
                     'updated_at' => Carbon::now()
                 ]);
                 return response()->json([
