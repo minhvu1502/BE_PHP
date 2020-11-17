@@ -133,5 +133,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 Route::post('auth/login', 'UserController@login');
 Route::post('auth/register', 'UserController@register');
 
+//User
+Route::post('dish-user/filter', 'DishController@filter');
+
 
 
