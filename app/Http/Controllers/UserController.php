@@ -36,7 +36,8 @@ class UserController extends Controller
                 'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
                 'avatarUrl' => $request->get('avatarUrl'),
-                'phone' => $request->get('phone')
+                'phone' => $request->get('phone'),
+                'isAdmin' => 0
             ]);
 
             return response()->json([
@@ -69,6 +70,7 @@ class UserController extends Controller
                     'password' => Hash::make($request->get('password')),
                     'avatarUrl' => $request->get('avatarUrl'),
                     'phone' => $request->get('phone'),
+                    'isAdmin' => 0,
                     'updated_at' => Carbon::now(),
                 ]);
                 return response()->json([
