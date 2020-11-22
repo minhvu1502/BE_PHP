@@ -53,7 +53,21 @@ class UserController extends Controller
             ], 500);
         }
     }
-
+    public  function getAllUser() {
+        try {
+            $user = DB::table('users')->get();
+            return response()->json([
+                'status' => 200,
+                'data' => $user,
+                'message' => 'Lấy dữ liệu thành công'
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => $e
+            ], 500);
+        }
+    }
     public function update(Request $request, $id)
     {
         try {

@@ -22,6 +22,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('user/user-info', 'UserController@getUserInfo');
     Route::get('auth/logout', 'UserController@logout');
     Route::put('user/update/{id}', 'UserController@update');
+    Route::get('user/get-all-user', 'UserController@getAllUser');
 
     //Hometown
     Route::post('hometown/create','HomeTownController@create');
@@ -135,6 +136,13 @@ Route::post('auth/register', 'UserController@register');
 
 //User
 Route::post('dish-user/filter', 'DishController@filter');
+
+//Checkout
+Route::post('checkout/create','CheckoutController@create');
+Route::post('checkout/filter', 'CheckoutController@filter');
+Route::get('checkout/detail/{id}', 'CheckoutController@Detail');
+Route::post('checkout/delete', 'CheckoutController@delete');
+Route::put('checkout/update/{id}', 'CheckoutController@update');
 
 
 
