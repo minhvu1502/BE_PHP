@@ -23,6 +23,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth/logout', 'UserController@logout');
     Route::put('user/update/{id}', 'UserController@update');
     Route::get('user/get-all-user', 'UserController@getAllUser');
+    Route::get('user/change-role/{id}', 'UserController@changeRole');
 
     //Hometown
     Route::post('hometown/create','HomeTownController@create');

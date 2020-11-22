@@ -68,6 +68,32 @@ class UserController extends Controller
             ], 500);
         }
     }
+
+    public  function changeRole($id) {
+        try {
+            $user = DB::table('users')->where('id', '=', $id);
+            $isAdmin = $user->get('isAdmin');
+            $isAdmin = $isAdmin[0]->isAdmin;
+            if ($isAdmin == 1) {
+                $isAdmin = 0;
+            } else{
+                $isAdmin = 1;
+            }
+            $user->update([
+                'isAdmin' => $isAdmin
+            ]);
+            return response()->json([
+                'status' => 200,
+                'data' => $user->get(),
+                'message' => 'Cập nhật Role thành công'
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => $e
+            ], 500);
+        }
+    }
     public function update(Request $request, $id)
     {
         try {
